@@ -1,0 +1,29 @@
+service: datadistribution
+
+provider:
+  name: aws
+  runtime: python3.6
+  stage: dev
+  region: us-east-1
+  aws-profile: default
+
+package:
+  include:
+    - handler.py
+
+functions:
+  handler:
+    handler: handler.main
+    events:
+      - http:
+          # instead of / you can define any HTTP path you like
+          # since we just have one endpoint I used /
+          path: /
+          method: get
+
+plugins:
+  - serverless-python-requirements         
+
+custom:
+  pythonRequirements:
+    dockerizePip: true
