@@ -1,7 +1,7 @@
 # handler.py
 import json
 import pandas as pd
-import matplotlib.pyplot as plt, mpld3
+import matplotlib.pyplot as plt
 
 def main(event, context):
     PERF_DATA = pd.read_csv('https://res.cloudinary.com/harip/raw/upload/v1520830685/timeseries.csv')
@@ -18,11 +18,12 @@ def main(event, context):
 
     # plot series
     AVG_VALUES.plot(kind='line', grid=True, ylim={0, 100})
-    HTML=mpld3.fig_to_html(FIG)
-    return {
-        'statusCode': 200,
-        'body': HTML
-    }
+    plt.show()
+    #HTML=mpld3.fig_to_html(FIG)
+    # return {
+    #     'statusCode': 200,
+    #     'body': 'test'
+    # }
 
 if __name__ == "__main__":
     main('', '')

@@ -1,3 +1,5 @@
+npm install -g serverless
+
 serverless create --template aws-python3 --name datadistribution
 
 pip freeze > requirements.txt
