@@ -1,10 +1,13 @@
 # handler.py
 import json
 import pandas as pd
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import mpld3
 
 def main(event, context):
+    
     PERF_DATA = pd.read_csv('https://res.cloudinary.com/harip/raw/upload/v1520830685/timeseries.csv')
 
     # Read column names and ignore Group column
