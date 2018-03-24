@@ -2,6 +2,7 @@
 import json
 import pandas as pd
 import matplotlib.pyplot as plt
+import mpld3
 
 def main(event, context):
     PERF_DATA = pd.read_csv('https://res.cloudinary.com/harip/raw/upload/v1520830685/timeseries.csv')
@@ -17,9 +18,10 @@ def main(event, context):
     AVG = AX.twiny()
 
     # plot series
-    AVG_VALUES.plot(kind='line', grid=True, ylim={0, 100})
-    plt.show()
-    #HTML=mpld3.fig_to_html(FIG)
+    #AVG_VALUES.plot(kind='line', grid=True, ylim={0, 100})
+    #plt.show()
+    HTML=mpld3.fig_to_html(FIG)
+    print(HTML)
     # return {
     #     'statusCode': 200,
     #     'body': 'test'
