@@ -21,14 +21,17 @@ def main(event, context):
     AVG = AX.twiny()
 
     # plot series
-    #AVG_VALUES.plot(kind='line', grid=True, ylim={0, 100})
+    AVG_VALUES.plot(kind='line', grid=True, ylim={0, 100})
     #plt.show()
     HTML=mpld3.fig_to_html(FIG)
-    print(HTML)
-    # return {
-    #     'statusCode': 200,
-    #     'body': 'test'
-    # }
+    # print(HTML)
+    return {
+        'statusCode': '200',
+        'body': HTML,
+        'headers': {
+            'Access-Control-Allow-Origin': '*'
+        } 
+    }
 
 if __name__ == "__main__":
     main('', '')
