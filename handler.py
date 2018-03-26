@@ -1,5 +1,4 @@
 # handler.py
-import json
 import pandas as pd
 import matplotlib.pyplot as plt, mpld3
 
@@ -11,7 +10,6 @@ def main(event, context):
 
     # get average values for each column as a series
     AVG_VALUES = pd.Series([PERF_DATA[col_name].mean() for col_name in COL_NAMES])
-
 
     FIG, AX = plt.subplots(nrows=1, ncols=1)
     AVG = AX.twiny()
