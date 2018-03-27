@@ -9,7 +9,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Runtime: python3.6
-      Handler: test.get
+      Handler: handler.main
       Events:
         GetChart:
           Type: Api

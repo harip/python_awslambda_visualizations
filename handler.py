@@ -1,8 +1,13 @@
 # handler.py
 import pandas as pd
 import matplotlib.pyplot as plt, mpld3
+import pprint as pp
+import json
 
 def main(event, context):
+
+    #pp.pprint(json.dumps(event))
+
     PERF_DATA = pd.read_csv('https://res.cloudinary.com/harip/raw/upload/v1520830685/timeseries.csv')
 
     # Read column names and ignore Group column
@@ -18,8 +23,8 @@ def main(event, context):
     AVG_VALUES.plot(kind='line', grid=True, ylim={0, 100})
     HTML=mpld3.fig_to_html(FIG)
     return {
-        'statusCode': 200,
-        'body': HTML
+        'statusCode': '200',
+        'body': 'HTML'
     }
 
 if __name__ == "__main__":
