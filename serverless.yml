@@ -20,6 +20,15 @@ functions:
           # since we just have one endpoint I used /
           path: /
           method: get
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
 
 plugins:
   - serverless-python-requirements         
@@ -27,3 +36,4 @@ plugins:
 custom:
   pythonRequirements:
     dockerizePip: true
+    dockerImage: charanp/pythonvis:version2
